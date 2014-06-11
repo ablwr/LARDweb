@@ -11,13 +11,16 @@ require 'pry'
 #   :profile_info => {}
 #   }]
 
-# html = open('http://ruby005.students.flatironschool.com/').read
+# each name we pull down is the value of the name key
+# one hash per student, and put them in an array of hashes
 
-# URLHacking
+def profile_grabber
+end
 
 def name_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
+  # Student names
   profiles << doc.search("h3 a").collect{|e| e.text.strip }
   students = []
   profiles.each do |student_name|
@@ -26,23 +29,53 @@ def name_grabber
   return students
 end
 
-# each name we pull down is the value of the name key
-# one hash per student, and put them in an array of hashes
+def tag_grabber
+  profiles = []
+  doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
+  profiles << doc.search(".home-blog-post-meta").collect{|e| e.text.strip }
+  tag_line = []
+  profiles.each do |tag_name|
+    tag_line << {:tag_line => tag_name} 
+  end
+  return tag_line
+end
+
+def excerpt_grabber
+  profiles = []
+  doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
+  profiles << doc.search(".excerpt p").collect{|e| e.text.strip }
+  excerpt = []
+  profiles.each do |excerpt_name|
+    excerpt << {:excerpt => excerpt_name} 
+  end
+  return excerpt
+end
+
+def image_url_grabber
+  profiles = []
+  doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
+  profiles << doc.search("src").collect{|e| e.text.strip }
+  image_url = []
+  profiles.each do |image_url_name|
+    image_url << {:image_url => image_url_name} 
+  end
+  return image_url
+end
+
+def profile_url_grabber
+  profiles = []
+  doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
+  profiles << doc.search(".blog-thumb a").collect{|e| e.text.strip }
+  profile_url = []
+  profiles.each do |profile_url_name|
+    profile_url << {:profile_url => profile_url_name} 
+  end
+  return profile_url
+end
+
+# puts excerpt_grabber
+puts image_url_grabber
+# puts profile_url_grabber
 
 
 
-
-
-#puts profiles
-
-# Other way cool too
-# while i < 10
-#   next_page = docsearch("a.button.next").attribute("href")
-#   doc = Nokogiri::HTML(open("http://newyork.craigslist.org/roo/#{next_page}"))
-#   prices << doc.search("span.price").collect{|e| e.text.gsub("$","").to_i}
-#   i+=1
-# end
-
-# [1,2].inject(0) do |total, element|
-#   total + element
-# end
