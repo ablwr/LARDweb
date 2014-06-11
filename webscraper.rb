@@ -2,6 +2,15 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
+# students = []
+# [{:name => "Some Name", 
+#   :tag_line => "My tagline", 
+#   :excerpt => "", 
+#   :image_url => "http://", 
+#   :profile_url => "http://",
+#   :profile_info => {}
+#   }]
+
 # html = open('http://ruby005.students.flatironschool.com/').read
 
 # URLHacking
