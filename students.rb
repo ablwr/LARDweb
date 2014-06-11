@@ -38,7 +38,8 @@ def run()
       students.each do |student|
         if student[:name] == student_selection
           puts "Here's more information about #{student_selection}"
-          puts student
+          puts "    Tag-line: #{student[:tag_line]}"
+          puts "    Excerpt: #{student[:excerpt]}"
         end
       end
     else
