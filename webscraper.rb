@@ -76,7 +76,7 @@ def profile_url_grabber
   return profile_url
 end
 
-puts profile_grabber
+# puts profile_grabber
 
 
 
