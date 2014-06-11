@@ -16,11 +16,22 @@ require 'pry'
 # URLHacking
 
 def name_grabber
-profiles = []
+  profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
   profiles << doc.search("h3 a").collect{|e| e.text.strip }
-  profiles
+  students = []
+  profiles.each do |student_name|
+    students << {:name => student_name} 
+
+  end
 end
+
+# each name we pull down is the value of the name key
+# one hash per student, and put them in an array of hashes
+
+
+
+
 
 #puts profiles
 

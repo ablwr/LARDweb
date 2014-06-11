@@ -18,7 +18,9 @@ def run()
     command = gets.chomp.downcase
     case command
     when "list"
-      puts students
+      students.each do |hash|
+        puts hash[:name]
+      end
       #print list of students
     else
     end
