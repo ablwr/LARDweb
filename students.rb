@@ -11,6 +11,8 @@ require_relative 'webscraper.rb'
 
 def run()
   puts "Welcome to Flatiron School Students!"
+  print "Loading..."
+
   command = ""
   students = profile_grabber()
   while command != "exit"
@@ -35,12 +37,16 @@ def run()
       if student_selection =~ /\d*/ && student_selection.to_i <= students.size() && student_selection.to_i > 0
         student_selection = students[student_selection.to_i - 1][:name]
       end
+      info = "Student not found; please consult student list using 'list'"
       students.each do |student|
         if student[:name] == student_selection
-          puts "Here's more information about #{student_selection}"
-          puts student
+          info =  "Here's more information about #{student_selection}\n"
+          info += "    Tag-line: #{student[:tag_line]}\n"
+          info += "    Excerpt: #{student[:excerpt]}"
+        else
         end
       end
+      puts info
     else
     end
   end
