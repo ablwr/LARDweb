@@ -27,7 +27,6 @@ class Flatiron_Scraper
     excerpts = excerpt_grabber(flatiron_doc)
     #Fix for David Coronado
     excerpts.insert(26,excerpts[39]).pop
-    puts excerpts
     profile_urls = profile_url_grabber(flatiron_doc)
     twitter_accounts = []
     
