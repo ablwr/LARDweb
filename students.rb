@@ -18,10 +18,11 @@ def run()
     command = gets.chomp.downcase
     case command
     when "list"
+      i = 1
       students.each do |hash|
-        puts hash[:name]
+        puts "#{i}. #{hash[:name]}"
+        i += 1
       end
-      #print list of students
     else
     end
   end
