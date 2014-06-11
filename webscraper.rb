@@ -68,7 +68,7 @@ end
 def profile_url_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles = doc.search(".blog-thumb a").collect{|e| e.text.strip }
+  profiles = doc.search(".big-comment h3 a").collect{|e| e["href"] }
   profile_url = []
   profiles.each do |profile_url_name|
     profile_url << {:profile_url => profile_url_name} 
@@ -76,7 +76,8 @@ def profile_url_grabber
   return profile_url
 end
 
-# puts profile_grabber
+puts profile_grabber
+puts profile_url_grabber
 
 
 
