@@ -26,8 +26,8 @@ def profile_grabber
     students[index][:excerpt] = excerpts[index]
     students[index][:tag_line] = tags[index]
   end
-  #return students
-  return profile_urls
+  return students
+  #return profile_urls
 end
 
 def name_grabber(doc)

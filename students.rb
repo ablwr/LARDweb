@@ -11,6 +11,7 @@ require_relative 'webscraper.rb'
 
 def run()
   puts "Welcome to Flatiron School Students!"
+  puts "Loading..."
   command = ""
   students = profile_grabber()
   while command != "exit"
