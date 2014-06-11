@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
-# students = []
+# students = 
 # [{:name => "Some Name", 
 #   :tag_line => "My tagline", 
 #   :excerpt => "", 

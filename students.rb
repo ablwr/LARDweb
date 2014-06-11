@@ -1,10 +1,8 @@
-# students = []
+# students = 
 # [{:name => "Some Name", 
 #   :tag_line => "My tagline", 
 #   :excerpt => "", 
-#   :image_url => "http://", 
-#   :profile_url => "http://",
-#   :profile_info => {}
+#   :twitter => "@..."
 #   }]
 
 require_relative 'webscraper.rb'
@@ -42,7 +40,8 @@ def run()
         if student[:name] == student_selection
           info =  "Here's more information about #{student_selection}\n"
           info += "    Tag-line: #{student[:tag_line]}\n"
-          info += "    Excerpt: #{student[:excerpt]}"
+          info += "    Excerpt: #{student[:excerpt]}\n"
+          info += "    Twitter: #{student[:twitter]}"
         else
         end
       end
