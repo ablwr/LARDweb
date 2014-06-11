@@ -22,8 +22,8 @@ def name_grabber
   students = []
   profiles.each do |student_name|
     students << {:name => student_name} 
-
   end
+  return students
 end
 
 # each name we pull down is the value of the name key
