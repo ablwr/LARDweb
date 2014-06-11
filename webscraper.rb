@@ -21,7 +21,7 @@ def name_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
   # Student names
-  profiles << doc.search("h3 a").collect{|e| e.text.strip }
+  profiles = doc.search("h3 a").collect{|e| e.text.strip }
   students = []
   profiles.each do |student_name|
     students << {:name => student_name} 
@@ -32,7 +32,7 @@ end
 def tag_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search(".home-blog-post-meta").collect{|e| e.text.strip }
+  profiles = doc.search(".home-blog-post-meta").collect{|e| e.text.strip }
   tag_line = []
   profiles.each do |tag_name|
     tag_line << {:tag_line => tag_name} 
@@ -43,7 +43,7 @@ end
 def excerpt_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search(".excerpt p").collect{|e| e.text.strip }
+  profiles = doc.search(".excerpt p").collect{|e| e.text.strip }
   excerpt = []
   profiles.each do |excerpt_name|
     excerpt << {:excerpt => excerpt_name} 
@@ -54,7 +54,7 @@ end
 def image_url_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search("src").collect{|e| e.text.strip }
+  profiles = doc.search("src").collect{|e| e.text.strip }
   image_url = []
   profiles.each do |image_url_name|
     image_url << {:image_url => image_url_name} 
@@ -65,7 +65,7 @@ end
 def profile_url_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search(".blog-thumb a").collect{|e| e.text.strip }
+  profiles = doc.search(".blog-thumb a").collect{|e| e.text.strip }
   profile_url = []
   profiles.each do |profile_url_name|
     profile_url << {:profile_url => profile_url_name} 
@@ -74,7 +74,7 @@ def profile_url_grabber
 end
 
 # puts excerpt_grabber
-puts image_url_grabber
+# puts image_url_grabber
 # puts profile_url_grabber
 
 
