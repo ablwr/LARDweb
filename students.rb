@@ -6,7 +6,7 @@
 #   :profile_url => "http://",
 #   :profile_info => {}
 #   }]
-require 'webscraper.rb'
+require_relative 'webscraper.rb'
 
 def run()
   puts "Welcome to Flatiron School Students!"

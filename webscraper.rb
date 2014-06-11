@@ -13,7 +13,7 @@ profiles = []
   profiles
 end
 
-puts profiles
+#puts profiles
 # Other way cool too
 # while i < 10
 #   next_page = docsearch("a.button.next").attribute("href")
