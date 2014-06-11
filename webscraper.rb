@@ -18,10 +18,12 @@ def profile_grabber
   students = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
   names = name_grabber(doc)
+  tags = tag_grabber(doc)
   excerpts = excerpt_grabber(doc)
   names.each_with_index do |student_name, index|
     students << {:name => student_name} 
     students[index][:excerpt] = excerpts[index]
+    students[index][:tag_line] = tags[index]
   end
   return students
 end
@@ -43,15 +45,10 @@ end
 
 
 
-def tag_grabber
-  profiles = []
-  doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles = doc.search(".home-blog-post-meta").collect{|e| e.text.strip }
-  tag_line = []
-  profiles.each do |tag_name|
-    tag_line << {:tag_line => tag_name} 
-  end
-  return tag_line
+def tag_grabber(doc)
+  tags = []
+  tags = doc.search(".home-blog-post-meta").collect{|e| e.text.strip }
+  return tags
 end
 
 
@@ -78,5 +75,8 @@ def profile_url_grabber
   end
   return profile_url
 end
+
+puts profile_grabber
+
 
 
