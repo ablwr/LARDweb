@@ -43,19 +43,10 @@ end
 
 
 
-puts profile_grabber
-
-
-
-
-
-
-
-
 def tag_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search(".home-blog-post-meta").collect{|e| e.text.strip }
+  profiles = doc.search(".home-blog-post-meta").collect{|e| e.text.strip }
   tag_line = []
   profiles.each do |tag_name|
     tag_line << {:tag_line => tag_name} 
@@ -63,10 +54,13 @@ def tag_grabber
   return tag_line
 end
 
+
+
+
 def image_url_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search(" ").collect{|e| e.text.strip }
+  profiles = doc.search("src").collect{|e| e.text.strip }
   image_url = []
   profiles.each do |image_url_name|
     image_url << {:image_url => image_url_name} 
@@ -77,17 +71,12 @@ end
 def profile_url_grabber
   profiles = []
   doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search("#random-full-width-content").collect{|e| e.text.strip }
+  profiles = doc.search(".blog-thumb a").collect{|e| e.text.strip }
   profile_url = []
   profiles.each do |profile_url_name|
     profile_url << {:profile_url => profile_url_name} 
   end
   return profile_url
 end
-
-# puts excerpt_grabber
-# puts image_url_grabber
-# puts profile_url_grabber
-
 
 
