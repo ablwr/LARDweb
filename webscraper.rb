@@ -6,9 +6,7 @@ require 'pry'
 # [{:name => "Some Name", 
 #   :tag_line => "My tagline", 
 #   :excerpt => "", 
-#   :image_url => "http://", 
-#   :profile_url => "http://",
-#   :profile_info => {}
+#   :twitter => "@..."
 #   }]
 
 # each name we pull down is the value of the name key
@@ -21,13 +19,19 @@ def profile_grabber
   tags = tag_grabber(doc)
   excerpts = excerpt_grabber(doc)
   profile_urls = profile_url_grabber(doc)
+  twitter_accounts = []
+  
+  profile_urls.each do |url|
+    twitter_accounts << twitter_grabber(url)
+  end
+
   names.each_with_index do |student_name, index|
     students << {:name => student_name} 
     students[index][:excerpt] = excerpts[index]
     students[index][:tag_line] = tags[index]
+    students[index][:twitter] = twitter_accounts[index]
   end
   return students
-  #return profile_urls
 end
 
 def name_grabber(doc)
@@ -50,21 +54,11 @@ def profile_url_grabber(doc)
   return profile_urls
 end
 
- #to-do
-def image_url_grabber
-  profiles = []
-  doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles = doc.search("src").collect{|e| e.text.strip }
-  image_url = []
-  profiles.each do |image_url_name|
-    image_url << {:image_url => image_url_name} 
-  end
-  return image_url
+def twitter_grabber(url)
+  url = "http://ruby005.students.flatironschool.com/" + url
+  doc = Nokogiri::HTML(open(url).read)
+  twitter_handle = doc.search(".social-icons a")[0]["href"]
+  twitter_handle.sub!("https://twitter.com/", "@").match(/@\w+/).to_s
 end
-
-
-
-#puts profile_grabber
-
 
 
