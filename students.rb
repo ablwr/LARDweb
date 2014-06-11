@@ -12,7 +12,7 @@ require_relative 'webscraper.rb'
 def run()
   puts "Welcome to Flatiron School Students!"
   command = ""
-  students = name_grabber()
+  students = profile_grabber()
   while command != "exit"
     puts "What would you like to do?"
     command = gets.chomp.downcase
