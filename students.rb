@@ -17,6 +17,7 @@ def run()
     command = gets.chomp.downcase
     case command
     when "list"
+      puts students
       #print list of students
     else
     end
