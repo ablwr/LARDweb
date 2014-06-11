@@ -14,6 +14,7 @@ def name_grabber
 end
 
 #puts profiles
+
 # Other way cool too
 # while i < 10
 #   next_page = docsearch("a.button.next").attribute("href")
@@ -21,10 +22,6 @@ end
 #   prices << doc.search("span.price").collect{|e| e.text.gsub("$","").to_i}
 #   i+=1
 # end
-
-
-
-
 
 # [1,2].inject(0) do |total, element|
 #   total + element
