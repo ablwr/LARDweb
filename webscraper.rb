@@ -60,5 +60,3 @@ def twitter_grabber(url)
   twitter_handle = doc.search(".social-icons a")[0]["href"]
   twitter_handle.sub!("https://twitter.com/", "@").match(/@\w+/).to_s
 end
-
-
