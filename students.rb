@@ -12,7 +12,8 @@ def run()
   print "Loading..."
 
   command = ""
-  students = profile_grabber()
+  scraper = Flatiron_Scraper.new()
+  students = scraper.profile_grabber()
   while command != "exit"
     puts "What would you like to do?"
     command = gets.chomp.downcase
