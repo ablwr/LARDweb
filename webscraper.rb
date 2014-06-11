@@ -13,8 +13,7 @@ profiles = []
   profiles
 end
 
-puts profiles
-
+#puts profiles
 
 # Other way cool too
 # while i < 10
