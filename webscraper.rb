@@ -7,13 +7,13 @@ require 'pry'
 # URLHacking
 
 def name_grabber
-profiles = []
-  doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
-  profiles << doc.search("h3 a").collect{|e| e.text.strip }
-  profiles
+    profiles = []
+    doc = Nokogiri::HTML(open("http://ruby005.students.flatironschool.com/").read)
+    profiles << doc.search("h3 a").collect{|e| e.text.strip }
+    profiles
 end
 
-puts profiles
+#puts profiles
 # Other way cool too
 # while i < 10
 #   next_page = docsearch("a.button.next").attribute("href")
